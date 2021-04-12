@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="myCanvas">
+      <p>ops, this browser dosent support canvas functionality.</p>
+    </canvas>
+    <script>
+      const canvas = document.querySelector('.myCanvas');
+      const width = canvas.width = window.innerWidth;
+      const height = canvas.height = window.innerHeight;
+      
+      const ctx = canvas.getContext('2d');
+      //radians javascriptis
+      function degToRad(deg) {
+        return deg * Math.PI / 180;
+      };
+      ctx.fillStyle = 'rgb(0,0,0)';
+      ctx.fillRect(0,0, width, height);
+      
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 1;
+      ctx.font = '36px arial';
+      ctx.strokeText('Canvas texts', 50, 45);
+      function testLoop(x, y) {
+        for (let i = 0; i < 10; i++) {
+
+          
+          //ctx.fillStyle = 'red';
+          //ctx.font = '48px georgia';
+          //ctx.fillText('Canvas texts with fill functionality', x, y);
+          let image = new Image();
+          image.src = 'firefox.png';
+          image.onload = function() {
+          ctx.drawImage(image, 20, 20, 175, 175, x+=20, y+=50, 185, 175);
+          y += 50;
+      }
+        }
+      }
+      
+      function loopLevel(x, y) {
+        for (let i = 0; i < 100; i++) {
+          x += 50;
+          
+          testLoop(x, y);
+        }
+
+      }
+      testLoop(50, 1);
+      loopLevel(50, 1)
+      testLoop(1, 1);
+      loopLevel(1, 1)
+
+      //images Onto Canvas
+
+      let image = new Image();
+      image.src = 'firefox.png';
+      image.onload = function() {
+        ctx.drawImage(image, 20, 20, 175, 175, 51, 51, 185, 175);
+      }
+
+      
+    
+      
+
+
+
+    
+    </script>
+  </body>
+</html>
