@@ -47,7 +47,7 @@
         ctx.moveTo(moveOffset + rand(2, 200), moveOffset);
         ctx.lineTo(moveOffset+length, moveOffset+rand(2, 20));
         let triHeight = rand(length/2, length) * Math.tan(degToRad(60));
-        ctx.lineTo(moveOffset+(length/2), rand(moveOffset+triHeight));
+        ctx.lineTo(moveOffset+(length/2),moveOffset+triHeight);
         ctx.lineTo(moveOffset * rand(2, 5), moveOffset * rand(2, 6));
         //ctx.lineTo(0, 0);
         ctx.fill();
